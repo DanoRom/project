@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>משחק הסוף</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+        #image {
+            margin-top: 20px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>הכנס קוד סודי</h1>
+    <input type="text" id="codeInput" maxlength="4" placeholder="XXXX">
+    <button onclick="checkCode()">בדוק</button>
+    <div id="message"></div>
+    <img id="image" style="display: none;" alt="תוצאה">
+    <script>
+        function checkCode() {
+            const correctCode = "0000";
+            const userCode = document.getElementById("codeInput").value;
+            const messageElement = document.getElementById("message");
+            const imageElement = document.getElementById("image");
+
+            if (userCode === correctCode) {
+                messageElement.textContent = "כל הכבוד! 🎆";
+                imageElement.src = "happy.jpg"; // תמונה שלך מחייך
+                imageElement.style.display = "block";
+            } else {
+                messageElement.textContent = "אופס, נסה שוב. 😢";
+                imageElement.src = "sad.jpg"; // תמונה עצובה שלך
+                imageElement.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
